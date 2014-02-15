@@ -27,7 +27,7 @@ class Parse
     if address_check.match(emailaddress)
       valid_email = [address_check.match(emailaddress).to_s]
     else
-      "Not found"
+      valid_email = ["Not found"]
     end
   end
 

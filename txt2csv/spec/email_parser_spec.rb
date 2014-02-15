@@ -7,4 +7,9 @@ describe Parse do
     return_array = Parse.parse_email("strawhatalexander@gmail.com")
     expect(return_array).to eq(["strawhatalexander@gmail.com"])
   end	
+
+  it "should parse email just '@' domain" do
+  	return_array = Parse.parse_email("@gmail.com")
+  	expect(return_array).to eq(["Not found"])
+  end
 end

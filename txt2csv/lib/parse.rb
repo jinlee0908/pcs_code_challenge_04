@@ -25,7 +25,7 @@ class Parse
   def self.parse_email(emailaddress)
     address_check = /\w+\@\w+\.\w+/
     if address_check.match(emailaddress)
-      valid_email = address_check.match(emailaddress).to_s
+      valid_email = [address_check.match(emailaddress).to_s]
     else
       "Not found"
     end

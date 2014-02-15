@@ -13,5 +13,13 @@ describe Parse do
   	expect(return_array).to eq(["Not found"])
   end
 
-  it "s"
+  it "should parse email with just a name and no domain or '@' " do
+    return_array = Parse.parse_email("thisisanemailbelieveitornot")
+    expect(return_array).to eq(["Not found"])
+  end
+
+  it "should parse email with just domain " do
+    return_array = Parse.parse_email("@gmail.com")
+    expect(return_array).to eq(["Not found"])
+  end
 end

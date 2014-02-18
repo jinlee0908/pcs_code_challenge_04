@@ -14,14 +14,14 @@ require 'parse.rb'
 # * There is always a last name (For "Miss Jane," "Jane" is a last name)
 # * Sometimes the last name is hyphenated (as in "Dr. Huntington-Smythe"). Do not split hyphenated last names.
 
-prefixes = ['M.', 'Mrs.', 'Mr.', 'Dr.', 'Ms.', 'Sister', "Lady"]
+prefixes = ['M.', 'Mrs.', 'Mr.', 'Dr.', 'Ms.', 'Sister', 'Lady']
 suffixes = %w(Jr. Sr. II III IV PhD.)
 
 
 describe Parse do
 
   it "should parse last names" do   
-    return_array = Parse.parse_names(prefixes, suffixes, "Madona")
+    return_array = Parse.parse_names(prefixes, suffixes, 'Madona')
     expect(return_array).to eq(["","","","Madona",""])
   end
 

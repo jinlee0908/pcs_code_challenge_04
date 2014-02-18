@@ -12,8 +12,10 @@ class Parse
     parsed_name[:last] = word.pop
     parsed_name[:pre] = word.shift if prefixes.include? word.first
     parsed_name[:first] = word.shift || word[0] = ''
+    # parsed_name[:first] = word.shift if word[0] != nil
     parsed_name[:middle] = word.shift || word[0] = ''
-    parsed_name.values
+    # parsed_name[:middle] = word.shift if word[0] != nil
+    parsed_name.values 
   end
 
   def self.parse_twitter(data)

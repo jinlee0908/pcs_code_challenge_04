@@ -11,8 +11,10 @@ class Parse
     parsed_name[:suffix] = word.pop if suffixes.include? word.last
     parsed_name[:last] = word.pop
     parsed_name[:pre] = word.shift if prefixes.include? word.first
-    parsed_name[:first] = word.shift if word[0] != nil
-    parsed_name[:middle] = word.shift if word[0] != nil
+    # parsed_name[:first] = word.shift if word[0] != nil
+    unless word[0].nil? parsed_name[:first] = word.shift
+    # parsed_name[:middle] = word.shift if word[0] != nil
+    unless word[0].nil?parsed_name[:middle] = word.shift
     parsed_name.values
   end
 

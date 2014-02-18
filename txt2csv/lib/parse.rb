@@ -1,8 +1,7 @@
+# this class is to parse out name, phone, email and twitter data.
 class Parse
-
-  def self.parse_names (prefixes, suffixes, name_string)
-
-    parsed_name = {pre:"", first:"", middle:"", last:"", suffix:""}
+  def self.parse_names(prefixes, suffixes, name_string)
+    parsed_name = { pre: '', first: '', middle: '', last: '', suffix: '' }
 
     # get the last word and see if it's a suffix
     # if so, save as suffix and store the next to last word as last_name
@@ -14,11 +13,11 @@ class Parse
     parsed_name[:pre] = word.shift if prefixes.include? word.first
     parsed_name[:first] = word.shift if word[0] != nil
     parsed_name[:middle] = word.shift if word[0] != nil
-    parsed_name.values 
+    parsed_name.values
   end
 
   def self.parse_twitter(data)
-    pattern=/\w+/
+    pattern = /\w+/
     twitter = [pattern.match(data).to_s]
   end
 
@@ -27,15 +26,20 @@ class Parse
     if address_check.match(emailaddress)
       valid_email = [address_check.match(emailaddress).to_s]
     else
-      valid_email = ["Not found"]
+      valid_email = ['Not Found']
     end
   end
 
   def self.parse_numbers(numbers)
-    #sets up the hash for the funneled numbers
-    parse_number ={country_code:"", area_code:"", prefix:"",line:"",ext:""}
-    #breaks the passed number into separate strings
-    num = numbers.scan(/\d+/)  
+    # sets up the hash for the funneled numbers
+    parse_number = {  country_code: '',
+                      area_code: '',
+                      prefix: '',
+                      line: '',
+                      ext: ''
+                  }
+    # breaks the passed number into separate strings
+    num = numbers.scan(/\d+/)
 
     parse_number[:country_code] = num.shift if num[0] == "1"
     parse_number[:area_code] = num.shift
@@ -45,5 +49,4 @@ class Parse
 
     parse_number.values
   end
-
 end

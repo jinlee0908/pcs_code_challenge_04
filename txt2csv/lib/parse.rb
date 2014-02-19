@@ -15,7 +15,7 @@ class Parse
     # parsed_name[:first] = word.shift if word[0] != nil
     parsed_name[:middle] = word.shift || word[0] = ''
     # parsed_name[:middle] = word.shift if word[0] != nil
-    parsed_name.values 
+    parsed_name.values
   end
 
   def self.parse_twitter(data)
@@ -35,12 +35,11 @@ class Parse
 
   def self.parse_numbers(numbers)
     # sets up the hash for the funneled numbers
-    parse_number = {  country_code: '', area_code: '', prefix: '', line: '',
-                      ext: '' }
+    parse_number = {  country: '', area: '', prefix: '', line: '', ext: '' }
     # breaks the passed number into separate strings
     num = numbers.scan(/\d+/)
-    parse_number[:country_code] = num.shift if num[0] == '1'
-    parse_number[:area_code] = num.shift
+    parse_number[:country] = num.shift if num[0] == '1'
+    parse_number[:area] = num.shift
     parse_number[:prefix] = num.shift
     parse_number[:line] = num.shift
     parse_number[:ext] = num.shift || num[0] = ''
